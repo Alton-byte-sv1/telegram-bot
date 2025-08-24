@@ -13,7 +13,7 @@ def get_quote():
         return "Keep pushing forward 💪"
 
 def send_message(text):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{8359549328:AAEOIyIPuwl3eE_qhHZR_qWjC5tmKEEtcZs}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": text}
     requests.post(url, data=payload)
 
@@ -21,4 +21,5 @@ if __name__ == "__main__":
     quote = get_quote()
     send_message(quote)
     print("Sent:", quote)
+
 
