@@ -1,23 +1,22 @@
-name: Daily Motivation Bot
+name: Daily Telegram Quote
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # Runs every day at 08:00 UTC (09:00 Lagos time)
-  workflow_dispatch:       # Manual run option
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
-  send-quote:
+  send_quote:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Run bot
+      - name: Send daily quote
         run: python bot.py
         env:
           TOKEN: ${{ secrets.TOKEN }}
