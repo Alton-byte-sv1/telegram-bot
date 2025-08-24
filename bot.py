@@ -1,10 +1,14 @@
-import requests
 import os
+import requests
 
-TOKEN = os.getenv("TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+TOKEN = os.environ['TOKEN']
+CHAT_ID = os.environ['CHAT_ID']
 
-url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-payload = {"chat_id": CHAT_ID, "text": "🚀 Test message from GitHub Actions!"}
-response = requests.post(url, data=payload)
-print(response.text)
+response = requests.get("https://zenquotes.io/api/random")
+data = response.json()[0]
+quote = f"\"{data['q']}\" — {data['a']}"
+
+requests.get(
+    f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+    params={"chat_id": CHAT_ID, "text": quote}
+)
