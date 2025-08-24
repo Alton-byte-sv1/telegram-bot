@@ -14,12 +14,13 @@ def get_quote():
 
 def send_message(text):
     url = f"https://api.telegram.org/bot{8359549328:AAEOIyIPuwl3eE_qhHZR_qWjC5tmKEEtcZs}/sendMessage"
-    payload = {"chat_id": CHAT_ID, "text": text}
+    payload = {"chat_id": @faratechinc, "text": text}
     requests.post(url, data=payload)
 
 if __name__ == "__main__":
     quote = get_quote()
     send_message(quote)
     print("Sent:", quote)
+
 
 
