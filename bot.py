@@ -2,7 +2,7 @@ import requests
 import os
 
 TOKEN = os.getenv("8359549328:AAEOIyIPuwl3eE_qhHZR_qWjC5tmKEEtcZs")
-CHAT_ID = os.getenv("-1002335264449")
+CHAT_ID = os.getenv("@faratechinc")
 
 def get_quote():
     try:
@@ -21,3 +21,4 @@ if __name__ == "__main__":
     quote = get_quote()
     send_message(quote)
     print("Sent:", quote)
+
